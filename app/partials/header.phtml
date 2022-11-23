@@ -1,0 +1,97 @@
+<?php
+  session_start();
+?>
+<div class="nav">
+      <div class="nav-body">
+        <div class="nav-left">
+          <div class="menu-bar">
+            <svg
+              width="102"
+              height="74"
+              viewBox="0 0 102 74"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="102" height="14" rx="7" fill="#D9D9D9" />
+              <rect y="30" width="102" height="14" rx="7" fill="#D9D9D9" />
+              <rect y="60" width="102" height="14" rx="7" fill="#D9D9D9" />
+            </svg>
+          </div>
+          <i class="fa-solid fa-bars"></i>
+          <img
+            class="icon"
+            src="https://lh3.googleusercontent.com/U-rMUiA0G4sFs3z1ZYGtL5mN2tSQ-FWwDZkETvKBHvLDAjL0_hRMH7KrevrjiXb2XLZuAukgS-bJwrJKo5oFAw8leS_e3xog1OAMlYaEVg=w500-rw"
+          />
+          <h1>Mang Inasal</h1>
+        </div>
+        <div class="nav-right">
+          <div class="user">
+            <?php 
+              if (isset($_SESSION['name'])) {
+                echo "<div class='auth'>
+                  " . $_SESSION['name'] . "
+                  <a href=" . $paths['CONTROLLERS_PATH'] . 'logout.php' . ">Log out</a>
+                </div>";
+              } else {
+                ?>
+                  <div class="not-auth">
+                    <p>Login / Register</p>
+                  </div>
+                <?php
+              }
+            ?>
+
+          </div>  
+          </div>
+        </div>
+      </div>
+
+
+      <div class="nav-pop-up">
+        <div class="pop-up-body">
+          <div class="close">
+            <div class="close-icon">
+              <svg
+                width="44"
+                height="44"
+                viewBox="0 0 44 44"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M2 2L42 42M42 2L2 42"
+                  stroke="white"
+                  stroke-width="5"
+                />
+              </svg>
+            </div>
+            <div class="picture">
+              <img
+                class="icon"
+                src="https://lh3.googleusercontent.com/U-rMUiA0G4sFs3z1ZYGtL5mN2tSQ-FWwDZkETvKBHvLDAjL0_hRMH7KrevrjiXb2XLZuAukgS-bJwrJKo5oFAw8leS_e3xog1OAMlYaEVg=w500-rw"
+              />
+            </div>
+          </div>
+          <div class="extra-nav">
+            <ul>
+              <li>
+                <?php 
+                  if (isset($_SESSION['name'])) {
+                    echo "<a href=" . $paths['CONTROLLERS_PATH'] . 'logout.php' . ">Log out</a>";
+                  } else {
+                    ?>
+                      <a href="#" class="not-auth">Login or Signup</a></li>
+                    <?php
+                  }
+                ?>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Order Now</a></li>
+              <li><a href="#">News</a></li>
+              <li><a href="#">Order History</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src=<?php echo $paths['JS_PATH'] . 'navPopup.js'; ?>></script>
